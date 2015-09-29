@@ -1,4 +1,4 @@
-<h2>All <%= (teachers.size) %> Teachers</h2>
+<h2>All <%= teachers.size %> Teachers</h2>
 
 <ul>
   <% teachers.each do |teacher| %>
@@ -6,6 +6,5 @@
   <% end %>
 </ul>
 
-<%= previous_page_link(page) %>
-<%= link_to("More Page >", root_path(page: page + 1)) unless teachers.size <= 25 %>
- <!-- unless teachers.size <= 25 -->
+<%= link_to('< Prev Page', teachers_path(page: page - 1)) if page > 0 %>
+<%= link_to("More Page >", teachers_path(page: page + 1)) unless teachers.size <= 24 %>

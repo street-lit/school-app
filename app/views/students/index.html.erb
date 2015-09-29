@@ -1,0 +1,10 @@
+<h2>All <%= students.size%> students</h2>
+
+<ul>
+  <% students.each do |student| %>
+    <li><%= student.full_name%> - <%= student.course.course_name.sub(/_/, " ").capitalize %></li>
+  <% end %>
+</ul>
+
+<%= link_to("< Prev Page", students_path(page: page - 1)) if page > 0 %>
+<%= link_to("More Page >", students_path(page: page + 1)) unless students.size <= 24 %>

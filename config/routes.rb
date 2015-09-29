@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :courses
   resources :schools
 
-  root "teachers#index"
+  root "schools#index"
 end
