@@ -1,0 +1,11 @@
+<h2>All <%= (courses.size) %> Courses</h2>
+
+<ul>
+  <% courses.each do |course| %>
+  <li> Id: <%= course.id %> Subject: <%= course.subject.sub(/_/, " ").capitalize %> Name: <%= course.course_name.sub(/_/, " ").capitalize %></li>
+  <% end %>
+</ul>
+
+<%= previous_page_link(page) %>
+<%= link_to("More Page >", root_path(page: page + 1)) %>
+ <!-- unless courses.size <= 25 -->

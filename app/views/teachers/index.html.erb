@@ -1,0 +1,11 @@
+<h2>All <%= (teachers.size) %> Teachers</h2>
+
+<ul>
+  <% teachers.each do |teacher| %>
+  <li> Name: <%= link_to( teacher.full_name, teacher_path(teacher)) %> course: <%= teacher.course.course_name.sub(/_/, " ").capitalize %> </li>
+  <% end %>
+</ul>
+
+<%= previous_page_link(page) %>
+<%= link_to("More Page >", root_path(page: page + 1)) unless teachers.size <= 25 %>
+ <!-- unless teachers.size <= 25 -->
