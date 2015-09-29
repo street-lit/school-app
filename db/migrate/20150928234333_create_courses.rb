@@ -3,7 +3,7 @@ class CreateCourses < ActiveRecord::Migration
     create_table :courses do |t|
       t.string :course_name, null: false
       t.string :subject, null: false
-      t.school :belongs_to
+      t.belongs_to :school, index: true, foreign_key: true
 
       t.timestamps null: false
     end

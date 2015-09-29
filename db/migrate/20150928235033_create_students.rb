@@ -4,9 +4,9 @@ class CreateStudents < ActiveRecord::Migration
       t.string :f_name, null: false
       t.string :l_name, null: false
       t.boolean :currently_enrolled, null: false
-      t.school :belongs_to
-      t.course :belongs_to
-      t.teacher :belongs_to
+      t.belongs_to :school, index: true, foreign_key: true
+      t.belongs_to :course, index: true, foreign_key: true
+      t.belongs_to :teacher, index: true, foreign_key: true
 
       t.timestamps null: false
     end
