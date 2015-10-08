@@ -6,5 +6,4 @@
   <% end %>
 </ul>
 
-<%= link_to("< Prev Page", students_path(page: page - 1)) if page > 0 %>
-<%= link_to("More Page >", students_path(page: page + 1)) unless students.size <= 24 %>
+<%= paginate students %>

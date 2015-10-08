@@ -1,8 +1,8 @@
 class StudentsController < ApplicationController
 
   def index
-    page = (params[:page] || 0).to_i
-    students = Student.limit(25).offset(page * 25)
-    render locals: { students: students, page: page }
+    # page = (params[:page] || 0).to_i
+    students = Student.order(:l_name).page(params[:page])
+    render locals: { students: students }
   end
 end
