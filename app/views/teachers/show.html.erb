@@ -1,5 +1,6 @@
-<h2><%= teacher.full_name %>'s students for <%= teacher.course.course_name.sub(/_/, " ").capitalize %></h2>
-<h3>Students</h3>
+<h1><%= teacher.full_name %></h1>
+
+<h2><%= teacher.full_name %>'s students for <%= teacher.course.name %>:</h2>
 <ul>
   <% teacher.students.each do |student|%>
   <li><%= student.f_name %> <%= student.l_name%> </li>

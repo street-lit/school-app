@@ -6,6 +6,8 @@ class SchoolsController < ApplicationController
   end
 
   def show
-
+    render locals: {
+      school: School.find(params[:id])
+    }
   end
 end

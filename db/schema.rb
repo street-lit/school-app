@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928235033) do
+ActiveRecord::Schema.define(version: 20150929224638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,20 @@ ActiveRecord::Schema.define(version: 20150928235033) do
   create_table "courses", force: :cascade do |t|
     t.string   "course_name", null: false
     t.string   "subject",     null: false
-    t.integer  "school_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "courses", ["school_id"], name: "index_courses_on_school_id", using: :btree
+  create_table "offerings", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "school_id"
+    t.integer  "cost",       default: 1000, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "offerings", ["course_id"], name: "index_offerings_on_course_id", using: :btree
+  add_index "offerings", ["school_id"], name: "index_offerings_on_school_id", using: :btree
 
   create_table "schools", force: :cascade do |t|
     t.string   "school_name", null: false
@@ -59,7 +67,8 @@ ActiveRecord::Schema.define(version: 20150928235033) do
   add_index "teachers", ["course_id"], name: "index_teachers_on_course_id", using: :btree
   add_index "teachers", ["school_id"], name: "index_teachers_on_school_id", using: :btree
 
-  add_foreign_key "courses", "schools"
+  add_foreign_key "offerings", "courses"
+  add_foreign_key "offerings", "schools"
   add_foreign_key "students", "courses"
   add_foreign_key "students", "schools"
   add_foreign_key "students", "teachers"

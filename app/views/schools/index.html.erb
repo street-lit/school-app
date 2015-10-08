@@ -1,10 +1,10 @@
-<h2>All <%= schools.size %></h2>
+<h2>All <%= schools.size %> schools</h2>
 
-<ul>
+<ol>
   <% schools.each do |school| %>
-    <li><%= school.school_name %></li>
+    <li><%= link_to("#{school.school_name}", school_path(school), class: "btn btn-info") %></li>
   <% end %>
-</ul>
+</ol>
 
 <%= link_to('< Prev Page', schools_path(page: page - 1)) if page > 0 %>
 <%= link_to("More Page >", schools_path(page: page + 1)) unless schools.size <= 24 %>

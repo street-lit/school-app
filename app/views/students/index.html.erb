@@ -2,7 +2,7 @@
 
 <ul>
   <% students.each do |student| %>
-    <li><%= student.full_name%> - <%= student.course.course_name.sub(/_/, " ").capitalize %></li>
+    <li><%= student.full_name%> - <%= student.course.name %></li>
   <% end %>
 </ul>
 

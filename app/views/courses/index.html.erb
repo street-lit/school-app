@@ -2,10 +2,10 @@
 
 <ul>
   <% courses.each do |course| %>
-  <li> Id: <%= course.id %> Subject: <%= course.subject.sub(/_/, " ").capitalize %> Name: <%= course.course_name.sub(/_/, " ").capitalize %></li>
+  <li> Id: <%= course.id %> Subject: <%= course.subject_name %> Name: <%= course.name %></li>
   <% end %>
 </ul>
 
-<%= previous_page_link(page) %>
-<%= link_to("More Page >", root_path(page: page + 1)) %>
+<%= link_to('< Prev Page', schools_path(page: page - 1)) if page > 0 %>
+<%= link_to("More Page >", schools_path(page: page + 1)) unless courses.size <= 24 %>
  <!-- unless courses.size <= 25 -->

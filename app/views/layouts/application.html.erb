@@ -7,10 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to("Schools", schools_path) %>
-  <%= link_to("Teachers", teachers_path) %>
-  <%= link_to("Students", students_path) %>
+
+  <%= render 'shared/header' %>
+
+<div class="container">
 <%= yield %>
+</div>
 
 </body>
 </html>

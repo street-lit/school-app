@@ -12,30 +12,6 @@ class CoursesController < ApplicationController
     }
   end
 
-  def new
-    render locals: {
-      course: get_course
-    }
-  end
-
-  def edit
-    render locals: {
-      course: Course.find(params[:id])
-    }
-  end
-
-  def create
-
-  end
-
-  def update
-
-  end
-
-  def destroy
-
-  end
-
   private
 
   def get_course

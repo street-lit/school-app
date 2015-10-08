@@ -1,0 +1,37 @@
+<h2><%= school.school_name %></h2>
+
+<h3>Teachers</h3>
+<ul>
+  <% school.teachers.each do |teacher| %>
+    <li><%= teacher.full_name %> - <%= teacher.course.subject_name %> : <%= teacher.course.name %> </li>
+  <% end %>
+</ul>
+
+<h3>Courses Offerred</h3>
+
+<ul>
+  <% school.courses.each do |course| %>
+    <li><%= course.name %></li>
+  <% end %>
+</ul>
+
+<h3><%= school.school_name %> has <%= school.students.where(currently_enrolled: true).count %> enrolled students</h3>
+<h3>Students Enrolled</h3>
+<ul>
+    <% school.students.each do |student| %>
+      <% if student.currently_enrolled == true %>
+      <li><%= student.full_name %> <%= student.course.name %></li>
+      <% end %>
+    <% end %>
+</ul>
+
+<h3><%= school.school_name %> has <%= school.students.where(currently_enrolled: false).count %> previously enrolled students</h3>
+
+<h3>Students Previously Enrolled</h3>
+<ul>
+    <% school.students.each do |student| %>
+      <% if student.currently_enrolled == false %>
+      <li><%= student.full_name %> <%= student.course.name %></li>
+      <% end %>
+    <% end %>
+</ul>

@@ -2,7 +2,7 @@
 
 <ul>
   <% teachers.each do |teacher| %>
-  <li> Name: <%= link_to( teacher.full_name, teacher_path(teacher)) %> course: <%= teacher.course.course_name.sub(/_/, " ").capitalize %> </li>
+  <li> Name: <%= link_to( teacher.full_name, teacher_path(teacher)) %> course: <%= teacher.course.name %> </li>
   <% end %>
 </ul>
 
