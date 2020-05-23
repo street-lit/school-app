@@ -50,7 +50,7 @@ group :development do
 end
 
 group :production do
-  gem 'puma'
+  gem 'puma', '>= 3.12.6'
   gem 'rails_12factor'
 end
 
